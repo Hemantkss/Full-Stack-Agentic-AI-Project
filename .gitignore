@@ -1,0 +1,47 @@
+    
+# ===============================
+# 🔐 Environment Variables
+# ===============================
+.env
+.env.*
+!.env.example
+
+# ===============================
+# 🐍 Python
+# ===============================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+
+# Virtual environments
+venv/
+env/
+.venv/
+
+# Python packaging
+build/
+dist/
+*.egg-info/
+
+# ===============================
+# 🚀 FastAPI / Uvicorn
+# ===============================
+*.log
+logs/*
+!logs/.gitkeep
+
+# ===============================
+# ⚛️ React / Vite / Node
+# ===============================
+node_modules/
+dist/
+build/
+.vite/
+
+# npm / yarn / pnpm
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*

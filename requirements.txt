@@ -1,0 +1,53 @@
+# Core packages
+ipykernel
+numpy
+pandas
+matplotlib
+pydantic
+python-dotenv
+tiktoken
+jq
+
+# LangChain & LangGraph
+langchain      
+langchain-core
+langchain-community
+langchain-openai
+langchain-text-splitters
+langchain-experimental
+langchain-tavily
+langchain_huggingface      # optional for HuggingFace embeddings
+langgraph
+langgraph-supervisor
+langsmith
+langchain-ollama
+
+# Vector Stores / Embeddings
+chromadb
+faiss-cpu
+sentence-transformers       # for local embeddings
+
+# Document handling
+pypdf
+pymupdf
+python-docx
+docx2txt
+unstructured
+openpyxl
+msoffcrypto-tool
+
+# Web / APIs
+arxiv
+wikipedia
+tavily-python
+openai
+
+# Optional / UI / Deployment (commented, enable if needed)
+streamlit
+fastapi
+uvicorn
+langserve[all]
+langgraph-cli[inmem]
+beautifulsoup4
+pinecone
+uvicorn

@@ -1,0 +1,59 @@
+project/
+│
+├── agent/                          # 🧠 Agentic AI Core
+│   ├── __init__.py                 # REQUIRED
+│   │
+│   ├── runner.py                   # Agent entry point (LangGraph invoke)
+│   │
+│   ├── llm/                        # LLM layer
+│   │   ├── __init__.py
+│   │   ├── base.py
+│   │   └── openai_llm.py
+│   │
+│   ├── graph/                      # LangGraph workflow
+│   │   ├── __init__.py
+│   │   ├── builder.py
+│   │   └── nodes.py
+│   │
+│   ├── state/                      # Agent state schema
+│   │   ├── __init__.py
+│   │   └── agent_state.py
+│   │
+│   ├── tools/                      # Agent tools
+│   │   ├── __init__.py
+│   │   └── calculator.py
+│   │
+│   ├── prompts/                    # Prompt templates / notes
+│   │   ├── __init__.py
+│   │   └── system.py
+│   │
+│   ├── logger/                    # ✅ Logging (infra)
+│   │   ├── __init__.py
+│   │   └── logger.py
+│   │
+│   └── exceptions/                 # ✅ Custom exceptions
+│       ├── __init__.py
+│       └── custom_exception.py
+│
+├── backend/                        # 🚀 FastAPI Backend
+│   ├── __init__.py
+│   ├── main.py
+│   ├── routes.py
+│   └── schemas.py
+│
+├── frontend/                       # ⚛️ React Frontend
+│   ├── src/
+│   │   ├── App.jsx
+│   │   ├── Chat.jsx
+│   │   ├── api.js
+│   │   └── main.jsx
+│   │
+│   ├── index.html
+│   ├── package.json
+│   └── vite.config.js
+│
+├── logs/                           # 📄 Auto-generated logs
+│
+├── .env                            # Env vars (OpenAI + LangSmith)
+├── requirements.txt                # Python deps
+└── README.md
