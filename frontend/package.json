@@ -10,10 +10,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "^9.5.0",
+    "@react-three/postprocessing": "^3.0.4",
     "@tailwindcss/vite": "^4.1.18",
+    "leva": "^0.10.1",
     "react": "^19.2.3",
     "react-dom": "^19.2.3",
-    "tailwindcss": "^4.1.18"
+    "react-router-dom": "^7.12.0",
+    "tailwindcss": "^4.1.18",
+    "three": "^0.182.0",
+    "three-custom-shader-material": "^6.4.0",
+    "vite-plugin-glsl": "^1.5.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.39.1",

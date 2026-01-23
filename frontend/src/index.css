@@ -1,8 +1,213 @@
 @import "tailwindcss";
 
+/* ========================
+   ROOT BACKGROUND
+======================== */
 html,
-body,
-#root {
+body {
   height: 100%;
+}
+
+#root {
+  min-height: 100%;
+  overflow-x: hidden;
+
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(120, 180, 255, 0.08),
+      transparent 40%
+    ),
+    linear-gradient(
+      45deg,
+      #9a9da3 0%,
+      #272a2e 70%,
+      #050505 100%
+    );
+}
+
+/* ========================
+   GRID LAYER (VISIBLE + SAFE)
+   👉 ABOVE background
+   👉 BELOW Canvas
+======================== */
+#root::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.12) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.12) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      rgba(120, 180, 255, 0.06) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(120, 180, 255, 0.06) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    72px 72px,
+    72px 72px,
+    240px 240px,
+    240px 240px;
+
+  mask-image: radial-gradient(
+    circle at 70% 50%,
+    black 75%,
+    transparent 95%
+  );
+
+  pointer-events: none;
+}
+
+/* ========================
+   HERO LAYOUT
+======================== */
+.hero {
+  position: relative;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  align-items: center;
+  z-index: 2; /* ABOVE canvas */
   overflow: hidden;
+
+  box-shadow: inset -160px 0 260px rgba(0, 0, 0, 1);
+}
+
+/* ========================
+   RIGHT SIDE ENERGY GLOW
+======================== */
+.hero::after {
+  content: "";
+  position: absolute;
+  right: -10%;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60%;
+  height: 80%;
+
+  background: radial-gradient(
+    circle at 30% 50%,
+    rgba(140, 200, 255, 0.28),
+    transparent 60%
+  );
+
+  filter: blur(70px);
+  opacity: 0.9;
+  animation: energyDrift 14s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes energyDrift {
+  from {
+    transform: translateY(-50%) scale(1);
+  }
+  to {
+    transform: translateY(-52%) scale(1.08);
+  }
+}
+
+/* ========================
+   HERO CONTENT
+======================== */
+.hero-content {
+  max-width: 620px;
+  padding-left: 6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+/* ========================
+   BADGE
+======================== */
+.hero-badge {
+  width: fit-content;
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+
+  color: #cfe9ff;
+  background: rgba(120, 180, 255, 0.12);
+  border: 1px solid rgba(120, 180, 255, 0.25);
+  backdrop-filter: blur(8px);
+}
+
+/* ========================
+   TITLE
+======================== */
+.hero-title {
+  font-size: clamp(3rem, 5vw, 5.6rem);
+  font-weight: 700;
+  line-height: 1.03;
+  color: white;
+  text-shadow: 0 0 45px rgba(120, 180, 255, 0.18);
+}
+
+.hero-title span {
+  background: linear-gradient(120deg, #7fd7ff, #c77dff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ========================
+   SUBTITLE
+======================== */
+.hero-subtitle {
+  max-width: 440px;
+  font-size: 1.05rem;
+  line-height: 1.6;
+  color: #bcbcbc;
+}
+
+/* ========================
+   BUTTON
+======================== */
+.hero-actions {
+  margin-top: 2.6rem;
+}
+
+.btn.primary {
+  padding: 14px 28px;
+  border-radius: 18px;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(6px);
+  transition: all 0.3s ease;
+}
+
+.btn.primary::after {
+  content: "→";
+  margin-left: 10px;
+  transition: transform 0.25s ease;
+}
+
+.btn.primary:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 12px 45px rgba(120, 180, 255, 0.4),
+    inset 0 0 20px rgba(140, 200, 255, 0.2);
+}
+
+.btn.primary:hover::after {
+  transform: translateX(4px);
 }
