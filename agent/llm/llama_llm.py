@@ -1,23 +1,24 @@
-from langchain.chat_models import init_chat_model
-from dotenv import load_dotenv
+from langchain_ollama import ChatOllama
 from agent.logger.logger import get_logger
 from agent.exceptions.custom_exception import CustomException
 
-load_dotenv()
+# Logger
 logger = get_logger(__name__)
 
-def get_openai_llm():
+
+# Function to get Llama LLM
+def get_llama_llm():
     try:
-        logger.info("openai LLM invoked")
+        logger.info("llama3.2:3b LLM invoked")
         
-        model = init_chat_model(
-            model="gpt-4.1",
+        model = ChatOllama(
+            model="llama3.2:3b",
             temperature=0
         )
         
         return model
     except Exception as e:
-        logger.error("openai LLM failed", exc_info=True)
+        logger.error("llama3.2:3b LLM failed", exc_info=True)
         raise CustomException(e)
 
         
